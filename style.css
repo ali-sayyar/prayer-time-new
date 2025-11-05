@@ -1,0 +1,432 @@
+:root {
+    --primary: #2E7D32;
+    --primary-dark: #1B5E20;
+    --primary-light: #4CAF50;
+    --accent: #FFC107;
+    --text-dark: #212121;
+    --text-light: #757575;
+    --background: #F5F5F5;
+    --white: #FFFFFF;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--background);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 480px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.app-header {
+    padding: 20px 20px;
+    color: var(--white);
+    position: relative;
+    z-index: 10;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.app-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.menu-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.menu-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.head-location-info {
+    display: flex;
+    width: fit-content;
+    cursor: pointer;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.location-icon {
+    background: rgba(255, 255, 255, 0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location-text {
+    font-size: 1.1rem;
+}
+
+.current-time {
+    font-size: 3.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.current-date {
+    text-align: center;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.prayer-times-container {
+    background: var(--white);
+    border-radius: 25px 25px 0 0;
+    padding: 25px 20px;
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 5;
+    min-height: calc(100vh - 300px);
+}
+
+.prayer-times-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.prayer-times-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.prayer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-right: 4px solid var(--primary);
+}
+
+.prayer-item.active {
+    background: var(--primary-light);
+    color: var(--white);
+    transform: scale(1.02);
+}
+
+.prayer-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.prayer-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(46, 125, 50, 0.1);
+    border-radius: 50%;
+    color: var(--primary);
+}
+
+.active .prayer-icon {
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--white);
+}
+
+.prayer-time {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.next-prayer {
+    background: var(--accent);
+    color: var(--text-dark);
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    gap: 10px;
+}
+
+.control-btn {
+    flex: 1;
+    padding: 12px;
+    background: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.control-btn:hover {
+    background: #f0f0f0;
+}
+
+.control-btn.primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.control-btn.primary:hover {
+    background: var(--primary-dark);
+}
+
+.floating-action-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 100;
+    transition: var(--transition);
+}
+
+.floating-action-btn:hover {
+    transform: scale(1.1);
+}
+
+.floating-action-btn i {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+}
+
+/* القائمة الجانبية */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: var(--white);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: var(--transition);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.side-menu.active {
+    right: 0;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.close-menu {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.menu-section {
+    margin-bottom: 25px;
+}
+
+.menu-section-title {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-item {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-item:hover {
+    background: #f5f5f5;
+}
+
+.color-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.color-option.active {
+    border-color: var(--text-dark);
+    transform: scale(1.1);
+}
+
+.color-option.green {
+    background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+}
+
+.color-option.blue {
+    background: linear-gradient(135deg, #1976D2 0%, #0D47A1 100%);
+}
+
+.color-option.purple {
+    background: linear-gradient(135deg, #7B1FA2 0%, #4A148C 100%);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* التعديلات على التصميم للعربية */
+.hijri-date {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 480px) {
+    .app-container {
+        border-radius: 0;
+    }
+
+    .current-time {
+        font-size: 3rem;
+    }
+
+    .prayer-times-container {
+        border-radius: 25px 25px 0 0;
+        padding: 20px 15px;
+    }
+}
+
+
+
+/* أنيميشن للتحميل */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.prayer-item {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.prayer-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.prayer-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.prayer-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.prayer-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.prayer-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.prayer-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
